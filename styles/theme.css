@@ -1,0 +1,35 @@
+.dark-theme {
+    --background-color: #000;
+    --navbar-color: #292e35;
+    --navbar-text-color: #fff;
+    --main-background-color: #12171b;
+    --main-text-color: rgba(255,255,255,0.87);
+    --second-text-color: #b2becd;
+    --nav-link-active-color:rgb(100, 100, 100);
+    --nav-link-active-hover-color: rgb(120, 120, 120);
+    --doc-section-background-color: #0d0d0d;
+    --doc-background-color: #1f1f1f;
+    --doc-p-color: #b2becd;
+    --box-shadow-around: none;
+    --sidebar-background-color: #222222;
+    --sidebar-text-color: #fff;
+    --a-color: #498afb;
+}
+
+.white-theme {
+    --background-color: #fff;
+    --navbar-color: #fff;
+    --navbar-text-color: #000;
+    --main-background-color:#dbe1e8;
+    --main-text-color: #12171b;
+    --second-text-color: #454e56;
+    --nav-link-active-color: rgb(229, 229, 229);
+    --nav-link-active-hover-color: rgb(200, 200, 200);
+    --doc-section-background-color: #e8eaed;
+    --doc-background-color: rgb(255,255,255);
+    --doc-p-color: #000;
+    --box-shadow-around: 0px 0px 2px 2px rgba(60,64,67,0.15);
+    --sidebar-background-color: #fff;
+    --sidebar-text-color: #000;
+    --a-color: #498afb;
+}

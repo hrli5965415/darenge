@@ -1,0 +1,23 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-darenge-dev-160830-authRole",
+            "UnauthRoleArn": "arn:aws:iam::567822324053:role/amplify-darenge-dev-160830-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::567822324053:role/amplify-darenge-dev-160830-authRole",
+            "Region": "ap-southeast-1",
+            "DeploymentBucketName": "amplify-darenge-dev-160830-deployment",
+            "UnauthRoleName": "amplify-darenge-dev-160830-unauthRole",
+            "StackName": "amplify-darenge-dev-160830",
+            "StackId": "arn:aws:cloudformation:ap-southeast-1:567822324053:stack/amplify-darenge-dev-160830/9b5156c0-2b5f-11ed-bd6d-06848fda533c",
+            "AmplifyAppId": "d2lz3nsw0tp9n7"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d2lz3nsw0tp9n7",
+                    "type": "cicd"
+                }
+            }
+        }
+    }
+}
