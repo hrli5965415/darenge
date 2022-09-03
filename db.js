@@ -19,20 +19,20 @@ const MongoDBInstance = new MongoClient(whichUri(),
     { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }
 );
 
-let cachedClient = null
-let cachedDb = null
+
 
 
 export const connectDB = async() => {
 
-    if (cachedClient && cachedDb) {
-        return { client: cachedClient, db: cachedDb }
-    }
+
     const client = await MongoDBInstance.connect();
+
+    console.log(process.env.NODE_ENV);
+
+    console.log('mongodb connected!!!');
     const db = client.db('database1');
 
-    cachedClient = client
-    cachedDb = db
+
 
     return {
         client,
