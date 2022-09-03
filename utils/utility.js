@@ -11,7 +11,7 @@ export const convertThemeToObj = (theme) => {
 };
 
 export const nameToUrl = (name) => {
-    return name.toString().toLowerCase().replaceAll(/\s/g, '-')
+    return name.toString().toLowerCase().replace(/\s/g, '-')
 }
 
 export const urlToName = (url) => {
