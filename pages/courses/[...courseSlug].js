@@ -17,8 +17,14 @@ export async function getStaticPaths() {
 
   let paths = [];
 
+
+
   for(let i=0; i<coursesResult.length; i++){
     for(let j=0; j<coursesResult[i].chapters.length; j++){
+
+      console.log(typeof coursesResult[i].courseName ,coursesResult[i].courseName);
+      console.log(typeof coursesResult[i].chapters[j].chapterName, coursesResult[i].chapters[j].chapterName);
+
       paths.push(
         {
           params: {
