@@ -11,16 +11,6 @@ const getDocPath = (courseName, chapterName) => {
     courseName,
     chapterName
   );
-  // const testlastIndexNum =
-  //   path.dirname(__dirname).indexOf("/.next/") + "/.next/".length;
-  // const testparentPath = path.dirname(__dirname).slice(0, testlastIndexNum - 6);
-
-  // const testfullPath = path.join(
-  //   testparentPath,
-  //   "/documentation/TWchapterdocs/",
-  //   courseName,
-  //   chapterName
-  // );
 
   return fullPath;
 };
