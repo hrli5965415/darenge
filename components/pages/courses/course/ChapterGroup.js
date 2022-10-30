@@ -41,9 +41,9 @@ export const ChapterGroup = ({
           return (
             <li
               key={chapter.chapterUrl}
-              className={`chapter-li 
-            ${currentRoute === nameToUrl(chapter.chapterUrl) ? "active" : ""}
-            `}
+              className={`chapter-li ${
+                currentRoute === nameToUrl(chapter.chapterUrl) ? "active" : ""
+              }`}
             >
               <span
                 className="checkbox-wrapper"
@@ -71,10 +71,7 @@ export const ChapterGroup = ({
                 )}`}
                 scroll={false}
               >
-                <a
-                  className={`chapter 
-                  }`}
-                >
+                <a className={`chapter`}>
                   <span>{chapter.chapterName}</span>
                 </a>
               </Link>
