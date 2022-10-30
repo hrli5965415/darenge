@@ -27,7 +27,7 @@ import {
 } from "../../../redux/slice/appSlice";
 import { SidebarModal } from "../SidebarModal";
 import { MenubarModal } from "../MenubarModal";
-import { MenubarSide } from "./menubarSide";
+import { MenubarSide } from "./MenubarSide";
 
 export const Navbar = ({ redirectUrl }) => {
   const dispatch = useDispatch();
