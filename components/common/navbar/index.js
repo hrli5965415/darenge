@@ -142,11 +142,11 @@ export const Navbar = ({ redirectUrl }) => {
                   onClick={() => {
                     if (redirectUrl) {
                       router.push(redirectUrl, undefined, {
-                        locale: reverseLocale(),
+                        locale: ZH_TW,
                       });
                     } else {
                       router.push({ pathname, query }, asPath, {
-                        locale: reverseLocale(),
+                        locale: ZH_TW,
                       });
                     }
                   }}
@@ -167,11 +167,11 @@ export const Navbar = ({ redirectUrl }) => {
                   onClick={() => {
                     if (redirectUrl) {
                       router.push(redirectUrl, undefined, {
-                        locale: reverseLocale(),
+                        locale: ZH_CN,
                       });
                     } else {
                       router.push({ pathname, query }, asPath, {
-                        locale: reverseLocale(),
+                        locale: ZH_CN,
                       });
                     }
                   }}

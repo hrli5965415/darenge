@@ -83,7 +83,7 @@ export const Sidebar = ({ courseDocument }) => {
 
 const StyledSidebar = styled.aside`
   height: calc(100vh + var(--navbar-height));
-  left: ${({ isSidebarOpen }) => (isSidebarOpen ? "0px" : "-400px")};
+
   width: var(--sidebar-width);
   font-size: 30px;
   position: fixed;
@@ -92,7 +92,10 @@ const StyledSidebar = styled.aside`
   //top: var(--navbar-height);
   box-shadow: var(--box-shadow-around);
   background-color: var(--sidebar-background-color);
-  transition: left 0.15s;
+  left: -400px;
+  transform: ${({ isSidebarOpen }) =>
+    isSidebarOpen ? "translateX(400px)" : "0px"};
+  transition: transform 0.15s;
   overflow: scroll;
   overflow-x: hidden;
   padding-bottom: 50px;
@@ -142,9 +145,11 @@ const StyledSidebar = styled.aside`
       z-index: 15;
       height: 100vh;
       top: 0;
-      left: ${({ isSidebarOpenOnSmallScreen }) =>
-        isSidebarOpenOnSmallScreen ? "0px" : "-400px"};
-      transform: translateY(0px) !important;
+      left: -400px;
+      /* left: ${({ isSidebarOpenOnSmallScreen }) =>
+        isSidebarOpenOnSmallScreen ? "0px" : "-400px"}; */
+      transform: ${({ isSidebarOpenOnSmallScreen }) =>
+        isSidebarOpenOnSmallScreen ? "translateX(400px)" : "translateX(0px)"};
       padding-top: 50px;
     }
 

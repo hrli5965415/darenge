@@ -34,7 +34,7 @@ code {
 
 
 a {
-  color: var(--a-color);
+  color: var(--third-text-color);
   text-decoration: none;
   cursor: pointer;
 }

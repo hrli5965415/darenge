@@ -118,6 +118,10 @@ const StyledDoc = styled.div`
     padding-left: 30px;
   }
 
+  a {
+    color: var(--a-color);
+  }
+
   @media (max-width: 1000px) {
     padding-left: 30px;
   }
