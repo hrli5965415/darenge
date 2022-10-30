@@ -1,24 +1,31 @@
-import { Provider} from 'react-redux'
-import { ThemeLayout } from '../components/layout/ThemeLayout'
-import { store } from '../redux/store'
-import '../styles/theme.css'
-import '../styles/globals.css'
-import '../styles/prism-material-dark.css'
-import '../styles/prism-highlight.css'
-import { useEffect } from 'react'
+import { Provider } from "react-redux";
+import { ThemeLayout } from "../components/layout/ThemeLayout";
+import { store } from "../redux/store";
+import "../styles/theme.css";
+import "../styles/globals.css";
+import "../styles/prism-atom-dark.css";
+import "../styles/doc.css";
+import "plyr/dist/plyr.css";
+import "plyr-react/plyr.css";
+//import "@vidstack/player/hydrate.js";
+import "video.js/dist/video-js.css";
+
+import { useEffect } from "react";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
-
-
-
-
   return (
-    <Provider store={store}>
-      <ThemeLayout>
-        <Component {...pageProps} />
-      </ThemeLayout>
-    </Provider>
-  )
+    <>
+      <Head>
+        <title>Darenge</title>
+      </Head>
+      <Provider store={store}>
+        <ThemeLayout>
+          <Component {...pageProps} />
+        </ThemeLayout>
+      </Provider>
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;

@@ -9,6 +9,11 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-}
+  i18n: {
+    locales: ["default", "zh-TW", "zh-CN"],
+    localeDetection: false,
+    defaultLocale: "default",
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

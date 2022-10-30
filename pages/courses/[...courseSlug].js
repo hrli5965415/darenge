@@ -7,7 +7,7 @@ import { Sidebar } from "../../components/pages/courses/course/Sidebar";
 import styled from "styled-components";
 import { DocSection } from "../../components/pages/courses/course/DocSection";
 import { SidebarToggler } from "../../components/pages/courses/course/SidebarToggler";
-import { SidebarModal } from "../../components/pages/courses/course/SidebarModal";
+import { SidebarModal } from "../../components/common/SidebarModal";
 import { useSelector } from "react-redux";
 import { TWCollection } from "../../documentation/TWCollection";
 import { CNCollection } from "../../documentation/CNCollection";
@@ -15,8 +15,6 @@ import { CNCollection } from "../../documentation/CNCollection";
 export async function getStaticPaths({ locales }) {
   //const { db } = await connectDB();
   //const courseResult = await db.collection("TW").find({}).toArray();
-
-  console.log(locales);
 
   const Collection = TWCollection;
   let paths = [];
@@ -26,8 +24,8 @@ export async function getStaticPaths({ locales }) {
       let pathItemWithoutLocale = {
         params: {
           courseSlug: [
-            nameToUrl(Collection[i].courseUrl),
-            nameToUrl(Collection[i].chapters[j].chapterUrl),
+            Collection[i].courseUrl,
+            Collection[i].chapters[j].chapterUrl,
           ],
         },
       };
@@ -53,19 +51,22 @@ export async function getStaticProps({ params, locale }) {
   //   .collection("TW")
   //   .findOne({ courseName: urlToName(params.courseSlug[0]) });
 
-  let Collection;
+  let Collection = [];
 
   if (locale === "zh-CN") {
-    Collection = CNCollection[0];
+    Collection = CNCollection;
   } else {
-    Collection = TWCollection[0];
+    Collection = TWCollection;
   }
+  const courseDocument = Collection.find(
+    (course) => course["courseUrl"] === params["courseSlug"][0]
+  );
 
   return {
     // Passed to the page component as props
     props: {
       courseDocument: {
-        ...Collection,
+        ...courseDocument,
       },
     },
   };

@@ -1,0 +1,197 @@
+<div class="doc-wrapper">
+  <h2>創建HTML文件</h2>
+  <p>
+    要寫一份HTML文件，首先在電腦上創建一個
+    <b className="popup-btn">
+      空白文件
+      <span className="popup">
+        編寫HTML時，最好是利用Visual Studio
+        Code這類型的工具，但是你仍然可以在電腦上直接創建HTML文件，例如使用記事本(Windows用戶)或者TextEdit(Mac用戶)來編寫HTML代碼。
+      </span>
+    </b>
+    ，並將其命名為
+    <b className="popup-btn">
+      index.html
+      <span className="popup">文件的名字不拘，但是結尾必須是.html</span>
+    </b>
+    ，接著在文件裡面輸入：
+  </p>
+  <pre data-language="html">
+      <code className="language-html">&lt;p&gt;hellow world&lt;/p&gt;</code>
+    </pre>
+  <p>然後保存這份文件。</p>
+  <p>
+    接著在<b className="popup-btn">
+      瀏覽器
+      <span className="popup">
+        你可以直接將文件拖到瀏覽器的分頁上，或者在文件上按下滑鼠右鍵，選擇Chrome來打開。
+      </span>
+    </b>
+    上打開它。或者，利用VScode的
+    <b className="popup-btn">
+      local development server
+      <span className="popup"
+        >要使用local development server，你可以在VScode的Extensions區域安裝Live
+        Server的插件。</span
+      >
+    </b>
+    也可以。
+  </p>
+  <iframe
+    class="iframe"
+    frameborder="0"
+    srcdoc='
+<head>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/codemirror.min.css"
+  integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/material-palenight.min.css"
+  integrity="sha512-uIAyXysSwPKYTS4BrBQGkt7i9ozdNjNA4jXfjFDl6fWIc2zDllleoiY5EkH7Ib2j+Qb8YJx4a5qy192JZqxqVg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/scroll/simplescrollbars.min.css"
+  integrity="sha512-2y3NTsei81d5emn5nwrdflyI5EGULwKXRZ0BCbO55cjgQ8x62X4ydH/jbnzrKnxArstf79F9n6z1j2MtVmJ8YA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+</head>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.CodeMirror {
+  flex: 1;
+  height: 150px;
+  box-sizing: border-box;
+  font-family: monospace;
+  color: black;
+  direction: ltr;
+  font-size: 22px;
+  padding: 10px;
+}
+
+#output {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 15px 20px;
+  background-color: rgb(20, 22, 27);
+  border-left: 2px solid rgb(38, 60, 82);
+  
+}
+#content {
+  background-color: white;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;  
+}
+
+#content > * {
+  font-size: 28px;
+}
+
+p {
+  margin-top: 0;
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .CodeMirror {
+    width: 100%;
+  }
+  #output {
+    width: 100%;
+  }
+}
+</style>
+<body>
+<!-- &lt;h1&gt;My First Heading&lt;/h1&gt; -->
+<div class="wrapper">
+  <textarea id="hellow"><p>hellow world</p></textarea>
+  <div id="output">
+    <div id="content"></div>
+  </div>
+</div>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/codemirror.min.js"
+  integrity="sha512-Kpi2Sp2KpXM2S7aM0p+CwWhm8NuogI15GFPXCmgqAnFr5c86VBXuLEZu0IGBwGSdhhTW6148hP9KTcRMmrjuFQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.9/mode/xml/xml.min.js"
+  integrity="sha512-LarNmzVokUmcA7aUDtqZ6oTS+YXmUKzpGdm8DxC46A6AHu+PQiYCUlwEGWidjVYMo/QXZMFMIadZtrkfApYp/g=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/scroll/simplescrollbars.min.js"
+  integrity="sha512-1Vc3i/yplqkVbJBGgEpx9odVj3SLHMx2EOsQOMJsHbM5LRPL2iaPH2sEE+8sZOCqvuXGignKEwmTqO6/b11RqQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+
+<script>
+  const hellow = document.getElementById("hellow");
+  const content = document.getElementById("content");
+  content.innerHTML = hellow.value;
+  var myCodeMirror = CodeMirror.fromTextArea(hellow, {
+    mode: "xml",
+    theme: "material-palenight",
+    lineNumbers: true,
+    scrollbarStyle: "overlay",
+  });
+  myCodeMirror.on("changes", (e) => {
+    content.innerHTML = e.getValue();
+  });
+</script>
+</body>
+
+'
+  >
+  </iframe>
+  <p>你的電腦螢幕會呈現上面的結果。</p>
+  <ul>
+    <li>
+      <p>
+        左邊的<span class="keyword">&lt;p&gt;</span>叫做<span class="keyword"
+          >開始標籤</span
+        >，代表一個元素的開始。
+      </p>
+    </li>
+
+    <li>
+      <p>
+        右邊的<span class="keyword">&lt;/p&gt;</span>叫做<span class="keyword"
+          >結束標籤</span
+        >，代表一個元素的結束。
+      </p>
+    </li>
+    <li>
+      <p>中間的Hellow World代表元素攜帶的內容。</p>
+    </li>
+  </ul>
+</div>
