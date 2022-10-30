@@ -1,78 +1,88 @@
-import React from 'react'
-import { connectDB } from '../../db'
-import { useRouter } from 'next/router';
-import { Navbar } from '../../components/common/navbar';
-import { nameToUrl, urlToName } from '../../utils/utility';
-import { Sidebar } from '../../components/pages/courses/course/Sidebar';
-import styled from 'styled-components';
-import { DocSection } from '../../components/pages/courses/course/DocSection';
-import { SidebarToggler } from '../../components/pages/courses/course/SidebarToggler';
+import React from "react";
+//import { connectDB } from "../../db";
+import { useRouter } from "next/router";
+import { Navbar } from "../../components/common/navbar";
+import { nameToUrl, urlToName } from "../../utils/utility";
+import { Sidebar } from "../../components/pages/courses/course/Sidebar";
+import styled from "styled-components";
+import { DocSection } from "../../components/pages/courses/course/DocSection";
+import { SidebarToggler } from "../../components/pages/courses/course/SidebarToggler";
+import { SidebarModal } from "../../components/pages/courses/course/SidebarModal";
+import { useSelector } from "react-redux";
+import { TWCollection } from "../../documentation/TWCollection";
+import { CNCollection } from "../../documentation/CNCollection";
 
+export async function getStaticPaths({ locales }) {
+  //const { db } = await connectDB();
+  //const courseResult = await db.collection("TW").find({}).toArray();
 
-export async function getStaticPaths() {
+  console.log(locales);
 
-
-  const { db } = await connectDB()
-  const coursesResult = await db.collection('collection1').find({}).toArray()
-
+  const Collection = TWCollection;
   let paths = [];
 
-
-
-  for(let i=0; i<coursesResult.length; i++){
-    for(let j=0; j<coursesResult[i].chapters.length; j++){
-
-      console.log(typeof coursesResult[i].courseName ,coursesResult[i].courseName);
-      console.log(typeof coursesResult[i].chapters[j].chapterName, coursesResult[i].chapters[j].chapterName);
-
-      paths.push(
-        {
-          params: {
-            courseSlug: [
-              nameToUrl(coursesResult[i].courseName), 
-              nameToUrl(coursesResult[i].chapters[j].chapterName) 
-            ]
-          }
-        }
-      )
+  for (let i = 0; i < Collection.length; i++) {
+    for (let j = 0; j < Collection[i].chapters.length; j++) {
+      let pathItemWithoutLocale = {
+        params: {
+          courseSlug: [
+            nameToUrl(Collection[i].courseUrl),
+            nameToUrl(Collection[i].chapters[j].chapterUrl),
+          ],
+        },
+      };
+      paths.push({
+        ...pathItemWithoutLocale,
+        locale: "zh-TW",
+      });
+      paths.push({
+        ...pathItemWithoutLocale,
+        locale: "zh-CN",
+      });
     }
   }
 
-
-
-    return {
-      paths,
-      fallback: false, // can also be true or 'blocking'
-    }
+  return {
+    paths,
+    fallback: false, // can also be true or 'blocking'
+  };
 }
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params, locale }) {
+  //const { db } = await connectDB();
+  // const result = await db
+  //   .collection("TW")
+  //   .findOne({ courseName: urlToName(params.courseSlug[0]) });
 
+  let Collection;
 
-  const { db } = await connectDB()
-  const result = await db.collection('collection1').findOne({courseName: urlToName(params.courseSlug[0])})
+  if (locale === "zh-CN") {
+    Collection = CNCollection[0];
+  } else {
+    Collection = TWCollection[0];
+  }
 
-
-    return {
-      // Passed to the page component as props
-      props: {
-          courseDocument: {
-            ...result,
-            _id: result._id.toString(),
-          }
+  return {
+    // Passed to the page component as props
+    props: {
+      courseDocument: {
+        ...Collection,
       },
-    }
+    },
+  };
 }
 
-export default function Course({courseDocument}) {
-
+export default function Course({ courseDocument }) {
+  const isSidebarOpenOnSmallScreen = useSelector(
+    (state) => state.doc.isSidebarOpenOnSmallScreen
+  );
 
   return (
     <>
       <Navbar />
-      <Sidebar courseDocument={courseDocument}/>
-      <DocSection courseDocument={courseDocument}/>
+      <Sidebar courseDocument={courseDocument} />
+      <DocSection courseDocument={courseDocument} />
       <SidebarToggler />
+      {isSidebarOpenOnSmallScreen && <SidebarModal />}
     </>
-  )
+  );
 }
-
