@@ -3,21 +3,32 @@ import path from "path";
 
 const getDocPath = (courseName, chapterName) => {
   const lastIndexNum =
-    path.dirname(__dirname).indexOf("/my-app/") + "/my-app/".length;
-  const parentPath = path.dirname(__dirname).slice(0, lastIndexNum);
+    path.dirname(__dirname).indexOf("/.next/") + "/.next/".length;
+  const parentPath = path.dirname(__dirname).slice(0, lastIndexNum - 6);
   const fullPath = path.join(
     parentPath,
     "/documentation/CNchapterdocs/",
     courseName,
     chapterName
   );
+  // const testlastIndexNum =
+  //   path.dirname(__dirname).indexOf("/.next/") + "/.next/".length;
+  // const testparentPath = path.dirname(__dirname).slice(0, testlastIndexNum - 6);
+
+  // const testfullPath = path.join(
+  //   testparentPath,
+  //   "/documentation/CNchapterdocs/",
+  //   courseName,
+  //   chapterName
+  // );
+
   return fullPath;
 };
 
 const dumpHtmlDoc = (inputCollection) => {
   let outPutCollection = inputCollection;
 
-  inputCollection.forEach((course) => {
+  outPutCollection.forEach((course) => {
     let courseUrl = course.courseUrl;
 
     const chapterList = course["chapters"];
@@ -33,7 +44,7 @@ const dumpHtmlDoc = (inputCollection) => {
     });
   });
 
-  return inputCollection;
+  return outPutCollection;
 };
 
 const TWRawCollection = [
