@@ -40,6 +40,7 @@ export const MenubarSide = ({
         className="menubar-toggler"
         onClick={() => dispatch(closeMenubarForSmallScreen())}
       ></div>
+      <div className="border"></div>
       <div className="nav-side">
         <Link href="/">
           <NavLink className="logo" isActive={isActivePath("/")}>
@@ -61,7 +62,7 @@ export const MenubarSide = ({
         <div className="toggler-wrapper">
           <div
             className="outside-toggler"
-            onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+            //onClick={() => setIsLanguageOpen(!isLanguageOpen)}
           >
             <Image
               src="/language-icon.svg"
@@ -73,22 +74,20 @@ export const MenubarSide = ({
               }`}
             />
             {currentLanguage()}
-            <div
+            {/* <div
               className={`right-chevron ${
                 theme === DARK_THEME ? "inverted" : ""
               }`}
-            >
-              <Image
-                src="/right-chevron.svg"
-                width={15}
-                height={15}
-                alt="right-chevron.svg"
-              />
-            </div>
+            > */}
+            {/* <Image
+              src="/right-chevron.svg"
+              width={15}
+              height={15}
+              alt="right-chevron.svg"
+            /> */}
+            {/* </div> */}
           </div>
-          <div
-            className={`inside-toggler-group ${isLanguageOpen ? "open" : ""}`}
-          >
+          <div className={`inside-toggler-group`}>
             <div
               className={`inside-toggler `}
               onClick={() => {
@@ -108,6 +107,7 @@ export const MenubarSide = ({
                 width={17}
                 height={17}
                 alt="checkmark-thin"
+                priority={true}
                 className={`checkmark-thin ${
                   theme === DARK_THEME ? "inverted" : ""
                 } ${router.locale === ZH_TW ? "checked" : ""}`}
@@ -133,6 +133,7 @@ export const MenubarSide = ({
                 width={17}
                 height={17}
                 alt="checkmark-thin"
+                priority={true}
                 className={`checkmark-thin ${
                   theme === DARK_THEME ? "inverted" : ""
                 } ${router.locale === ZH_CN ? "checked" : ""}`}
@@ -144,7 +145,7 @@ export const MenubarSide = ({
         <div className="toggler-wrapper">
           <div
             className="outside-toggler"
-            onClick={() => setIsThemeOpen(!isThemeOpen)}
+            // onClick={() => setIsThemeOpen(!isThemeOpen)}
           >
             <Image
               src={theme === DARK_THEME ? "/moon-white.png" : "/sun-dark.svg"}
@@ -153,7 +154,7 @@ export const MenubarSide = ({
               alt="language-icon.svg"
             />
             {currentTheme()}
-            <div
+            {/* <div
               className={`right-chevron ${
                 theme === DARK_THEME ? "inverted" : ""
               }`}
@@ -164,9 +165,9 @@ export const MenubarSide = ({
                 height={15}
                 alt="right-chevron.svg"
               />
-            </div>
+            </div> */}
           </div>
-          <div className={`inside-toggler-group ${isThemeOpen ? "open" : ""}`}>
+          <div className={`inside-toggler-group`}>
             <div
               className={`inside-toggler `}
               onClick={() => {
@@ -178,6 +179,7 @@ export const MenubarSide = ({
                 width={17}
                 height={17}
                 alt="checkmark-thin"
+                priority={true}
                 className={`checkmark-thin ${
                   theme === DARK_THEME ? "inverted" : "checked"
                 }`}
@@ -195,6 +197,7 @@ export const MenubarSide = ({
                 width={17}
                 height={17}
                 alt="checkmark-thin"
+                priority={true}
                 className={`checkmark-thin ${
                   theme === DARK_THEME ? "inverted checked" : ""
                 }`}
@@ -302,15 +305,9 @@ const StyledMenubarSide = styled.aside`
   }
 
   .inside-toggler-group {
-    display: none;
-  }
-  .open {
     display: block;
   }
 
-  .toggler-open {
-    display: block;
-  }
   @media (max-width: 700px) {
     display: block;
     .toggler-section {

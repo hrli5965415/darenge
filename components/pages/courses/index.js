@@ -21,6 +21,7 @@ export const CoursesSection = ({ courses }) => {
                       height={100}
                       src={course.courseIconPath}
                       alt={course.courseUrl}
+                      priority={true}
                     />
                   </div>
                   <div className="course-name">{course.courseName}</div>

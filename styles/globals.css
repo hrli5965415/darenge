@@ -32,7 +32,6 @@ code {
 }
 
 
-
 a {
   color: var(--third-text-color);
   text-decoration: none;
@@ -63,8 +62,9 @@ p {
   font-size: 20px;
 }
 
-hr {
-  border: 0.1px solid rgba(40,40,40, 0.15)
+.border {
+  border-bottom: var(--border-bottom);
+  margin: 15px auto;
 }
 
 @media (prefers-color-scheme: dark) {

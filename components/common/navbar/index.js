@@ -156,6 +156,7 @@ export const Navbar = ({ redirectUrl }) => {
                     width={17}
                     height={17}
                     alt="checkmark-thin"
+                    priority={true}
                     className={`checkmark-thin ${
                       theme === DARK_THEME ? "inverted" : ""
                     } ${router.locale === ZH_TW ? "checked" : ""}`}
@@ -181,6 +182,7 @@ export const Navbar = ({ redirectUrl }) => {
                     width={17}
                     height={17}
                     alt="checkmark-thin"
+                    priority={true}
                     className={`checkmark-thin ${
                       theme === DARK_THEME ? "inverted" : ""
                     } ${router.locale === ZH_CN ? "checked" : ""}`}
